@@ -8,7 +8,7 @@ if ( localStorage.runnercode_new !== "false" ) {
 }
 
 function log(d) {
-    return(d)
+    return d;
 }
 function deleteCanvas() {
     canvas.style.visibility = "hidden";
@@ -25,3 +25,16 @@ function closingCode(){
     localStorage.runnercode_text = editor.value;
    return null;
 }
+function clearCanvas() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+window.addEventListener("keydown", function (event) {
+    currentKey.set(event.key, true);
+    keydown = true;
+  });
+
+  window.addEventListener("keyup", function (event) {
+    currentKey.set(event.key, false);
+    keydown = false;
+  });
