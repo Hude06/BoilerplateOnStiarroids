@@ -10,29 +10,19 @@ if ( localStorage.runnercode_new !== "false" ) {
     localStorage.runnercode_new = "false";
 }
 document.getElementById("export").addEventListener("click", function() {
-    log("Hello")
         const htmlContent = editor.value;
         const fileName = 'game.js';
-
-        // Create a Blob with the HTML content
         const blob = new Blob([htmlContent], { type: 'text/html' });
-
-        // Create a URL for the Blob
         const url = URL.createObjectURL(blob);
-
-        // Create an anchor element with download attribute and click it
         const a = document.createElement('a');
         a.href = url;
         a.download = fileName;
         a.click();
-
-        // Release the URL object
         URL.revokeObjectURL(url);
 }); 
 function deleteCanvas() {
     canvas.style.visibility = "hidden";
 }
-
 function createCanvas(width, height) {
     canvas.style.visibility = "visible";
     canvas.height = height;
