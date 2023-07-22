@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Runner</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        h1 {
+            font-size: 60px;
+        }
+        * {
+            font-family: Papyrus;
+            font-weight: bold;
+        }
+        #editor {
+            width: 1000px;
+            height: 300px;
+            border: 3px solid black;
+            padding: 20px;
+        }
+        #output {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+            white-space: pre-wrap;
+            border: 3px solid black;
+        }
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border: 3px solid black;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Code Runner</h1>
+        <textarea id="editor" placeholder="Enter your code here"></textarea><br>
+        <button id="runButton">Run</button>    <button id="stopButton">Stop</button>
+        <canvas id="canvas"></canvas>
+        <div id="output">Output: NaN</div>
+    </center>   
+
+    <script>
+        const editor = document.getElementById('editor');
+        const runButton = document.getElementById('runButton');
+        const stopButton = document.getElementById('stopButton');
+        const outputDiv = document.getElementById('output');
+
+        runButton.addEventListener('click', () => {
+            const code = editor.value;
+            try {
+                const result = eval(code);
+                outputDiv.textContent = result;
+            } catch (error) {
+                outputDiv.textContent = "Error: " + error.message;
+            }
+        });
+        stopButton.addEventListener('click', () => {
+            location.reload();
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
