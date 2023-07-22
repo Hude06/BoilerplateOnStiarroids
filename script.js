@@ -2,6 +2,7 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 canvas.style.visibility = "hidden";
 function log(d) {
+    console.log(d)
     return(d)
 }
 editor.value = localStorage.runnercode_text;
