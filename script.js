@@ -1,9 +1,13 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 canvas.style.visibility = "hidden";
+let red = "255,0,0"
 function log(d) {
     console.log(d)
     return(d)
+}
+function fillRect(x,y,w,h) {
+    ctx.fillRect(x,y,w,h)
 }
 editor.value = localStorage.runnercode_text;
 if ( localStorage.runnercode_new !== "false" ) {
